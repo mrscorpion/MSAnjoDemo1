@@ -14,7 +14,7 @@
 #import "MSMeVC.h"
 #import "UIView+Draggable.h"
 #import "MSSettingVC.h"
-//#import "AppDelegate.h"
+#import <DKNightVersion.h>
 
 @interface MSMeVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *dragView;
@@ -38,6 +38,7 @@
     [super viewDidLoad];
     
     self.signatureLabel.text = Localized(@"Signature");
+    self.signatureLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
     
     // UIImageView ignored user events by default, so set
     // `userInteractionEnabled` to YES for receive touch events.

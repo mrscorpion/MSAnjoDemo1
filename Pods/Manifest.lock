@@ -1,0 +1,24 @@
+PODS:
+  - DKNightVersion (2.3.1):
+    - DKNightVersion/Core (= 2.3.1)
+    - DKNightVersion/CoreAnimation (= 2.3.1)
+    - DKNightVersion/UIKit (= 2.3.1)
+  - DKNightVersion/Core (2.3.1):
+    - DKNightVersion/Core/DeallocBlockExecutor (= 2.3.1)
+    - DKNightVersion/Core/extobjc (= 2.3.1)
+  - DKNightVersion/Core/DeallocBlockExecutor (2.3.1)
+  - DKNightVersion/Core/extobjc (2.3.1)
+  - DKNightVersion/CoreAnimation (2.3.1):
+    - DKNightVersion/Core
+  - DKNightVersion/UIKit (2.3.1):
+    - DKNightVersion/Core
+
+DEPENDENCIES:
+  - DKNightVersion
+
+SPEC CHECKSUMS:
+  DKNightVersion: a777bb22a9a68837d89ddd724e1fcaf65581dde4
+
+PODFILE CHECKSUM: 837513fef7a8b415bcc2cd6c1bd6f769dd8394d9
+
+COCOAPODS: 1.0.1

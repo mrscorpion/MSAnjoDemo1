@@ -9,6 +9,7 @@
 #import "MSSettingVC.h"
 #import "AppDelegate.h"
 #import "MSContentVC.h"
+#import <DKNightVersion/DKNightVersion.h>
 
 #define LanguageChanged   @"LANGUAGE_CHANGE_NOTIFICATION"
 
@@ -37,18 +38,54 @@
 //    self.navigationController.navigationBar.translucent = NO;
 //    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 //    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:22.0f], NSFontAttributeName, nil]];
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
     
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, CGRectGetWidth(self.view.frame) - 40, 30)];
+    titleLabel.font = [UIFont systemFontOfSize:25.f];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text =  Localized(@"Setting");
+    [self.view addSubview:titleLabel];
     
+    CGFloat btnH = 36;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(20, 120, self.view.frame.size.width - 40, 30);
-    btn.backgroundColor = [UIColor blackColor];
+    btn.frame = CGRectMake(20, 120, self.view.frame.size.width - 40, btnH);
+    btn.titleLabel.font = [UIFont systemFontOfSize:16];
     btn.layer.cornerRadius = 5;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn setTitle:[NSString stringWithFormat:@"%@ : %@", Localized(@"Tap"), Localized(@"Change Display Language")] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(languageAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    
+    UIButton *switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [switchButton addTarget:self action:@selector(switchColor) forControlEvents:UIControlEventTouchUpInside];
+    switchButton.layer.cornerRadius = 5;
+    switchButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [switchButton setFrame:CGRectMake(CGRectGetMinX(btn.frame), CGRectGetMaxY(btn.frame) + 40, CGRectGetWidth(btn.frame), CGRectGetHeight(btn.frame))];
+    [switchButton setTitle:Localized(@"Switch Night") forState:UIControlStateNormal];
+    [self.view addSubview:switchButton];
+    
+    
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
+    [titleLabel dk_setTextColorPicker:DKColorPickerWithKey(TEXT)];
+    [titleLabel dk_setShadowColorPicker:DKColorPickerWithKey(BAR)];
+    [btn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
+    [switchButton dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
+    [btn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
+    [switchButton dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
 }
+
+- (void)switchColor
+{
+    if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight])
+    {
+        [self.dk_manager dawnComing];
+    }
+    else {
+        [self.dk_manager nightFalling];
+    }
+}
+
 
 - (void)dealloc
 {
