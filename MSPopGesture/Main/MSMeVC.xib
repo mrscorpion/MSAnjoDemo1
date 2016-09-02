@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMeVC">
+            <connections>
+                <outlet property="dragView" destination="K6e-BI-Hav" id="4Lp-ue-D5q"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tojane" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-Pl-WRs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mrscorpion" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-BI-Hav">
+                    <rect key="frame" x="147" y="120" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="1:1" id="NrL-El-z7J"/>
+                        <constraint firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="34:34" id="Wgm-SD-vSm"/>
+                        <constraint firstAttribute="height" constant="100" id="epk-wd-As1"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Wgm-SD-vSm"/>
+                            <exclude reference="epk-wd-As1"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 致给远方的大海 ／ 只言片语 -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgZ-U7-KXs">
+                    <rect key="frame" x="82" y="230" width="210" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="K6e-BI-Hav" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Hz-JW-ctW"/>
+                <constraint firstItem="xgZ-U7-KXs" firstAttribute="top" secondItem="K6e-BI-Hav" secondAttribute="bottom" constant="30" id="Efc-Gb-RYJ"/>
+                <constraint firstItem="K6e-BI-Hav" firstAttribute="width" secondItem="3EZ-Pl-WRs" secondAttribute="width" multiplier="0.213" id="Hnp-xq-tdd"/>
+                <constraint firstItem="xgZ-U7-KXs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="JOW-lV-tue"/>
+                <constraint firstAttribute="trailing" secondItem="3EZ-Pl-WRs" secondAttribute="trailing" id="Tj5-tI-v4B"/>
+                <constraint firstAttribute="bottom" secondItem="3EZ-Pl-WRs" secondAttribute="bottom" id="akL-Qi-6cG"/>
+                <constraint firstItem="3EZ-Pl-WRs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i0k-k1-v8E"/>
+                <constraint firstItem="3EZ-Pl-WRs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iKg-1S-2c8"/>
+                <constraint firstItem="K6e-BI-Hav" firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="34:34" id="uQ7-iR-DFy"/>
+                <constraint firstItem="K6e-BI-Hav" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="weA-qN-wQ4"/>
+                <constraint firstItem="xgZ-U7-KXs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zMa-Cy-fns"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="uQ7-iR-DFy"/>
+                    <exclude reference="JOW-lV-tue"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="245.5" y="312.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mrscorpion" width="397" height="397"/>
+        <image name="tojane" width="500" height="333"/>
+    </resources>
+</document>
