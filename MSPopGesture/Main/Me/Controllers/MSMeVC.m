@@ -5,11 +5,6 @@
 //  Created by mr.scorpion on 16/9/2.
 //  Copyright © 2016年 mr.scorpion. All rights reserved.
 //
-/*
- 希望结识更多的朋友，如不嫌弃，欢迎加我
- QQ   : 1515679729
- Blog : http://mrscorpion.github.io
- */
 
 #import "MSMeVC.h"
 #import "UIView+Draggable.h"
@@ -23,16 +18,6 @@
 
 @implementation MSMeVC
 #pragma mark - View Life Cycle
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setHidden:YES];
-}
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.navigationController.navigationBar setHidden:YES];
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,14 +25,11 @@
     self.signatureLabel.text = Localized(@"Signature");
     self.signatureLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
     
-    // UIImageView ignored user events by default, so set
-    // `userInteractionEnabled` to YES for receive touch events.
+    // Draggable view
     self.dragView.userInteractionEnabled = YES;
-    
-    // Make avatarView draggable
     [self.dragView makeDraggable];
     
-    
+    // Gesture
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
     tap.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:tap];

@@ -14,25 +14,14 @@
 
 @implementation MSContentVC
 #pragma mark - View Life Cycle
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setHidden:YES];
-}
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.navigationController.navigationBar setHidden:YES];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"To Jane";
+//    self.title = @"To Jane";
 
     // BG Image
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"firefly"]];
-    bgImageView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
     
     // To Next

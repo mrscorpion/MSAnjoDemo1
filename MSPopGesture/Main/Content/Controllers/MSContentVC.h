@@ -6,7 +6,7 @@
 //  Copyright © 2016年 mr.scorpion. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MSBaseVC.h"
 
-@interface MSContentVC : UIViewController
+@interface MSContentVC : MSBaseVC
 @end
