@@ -14,7 +14,7 @@
 #import "MSMeVC.h"
 #import "UIView+Draggable.h"
 #import "MSSettingVC.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 @interface MSMeVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *dragView;
@@ -23,6 +23,16 @@
 
 @implementation MSMeVC
 #pragma mark - View Life Cycle
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -19,6 +19,11 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
 }
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
 
 - (void)viewDidLoad
 {
@@ -38,7 +43,7 @@
 #pragma mark - Actions
 - (void)toNext
 {
-    [self.navigationController pushViewController:[[MSMeVC alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[MSMeVC alloc] initWithNibName:@"MSMeVC" bundle:nil] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

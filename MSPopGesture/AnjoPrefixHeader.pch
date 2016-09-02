@@ -1,0 +1,18 @@
+//
+//  AnjoPrefixHeader.pch
+//  MSPopGesture
+//
+//  Created by mr.scorpion on 16/9/2.
+//  Copyright © 2016年 mr.scorpion. All rights reserved.
+//
+
+#ifndef AnjoPrefixHeader_pch
+#define AnjoPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// Language Setting 
+#define Localized(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Language"]
+
+#endif /* AnjoPrefixHeader_pch */

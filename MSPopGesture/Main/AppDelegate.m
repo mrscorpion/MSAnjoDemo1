@@ -15,27 +15,19 @@
 #import "MSLauchVC.h"
 #import "MSNavVC.h"
 #import "ViewController.h"
+#import "MSContentVC.h"
+#import "MSMeVC.h"
+#import "MSSettingVC.h"
 
 @interface AppDelegate ()
 @end
 
 @implementation AppDelegate
-- (UIWindow *)window
-{
-    if (!_window) {
-        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    }
-    return _window;
-}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //到主页
-//    [self toMain];
-//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     MSLauchVC *launchVC = [[MSLauchVC alloc] init];
     self.window.rootViewController = launchVC;
     [self.window makeKeyAndVisible];
-    
     
     if (![[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"]) {
         NSArray *languages = [NSLocale preferredLanguages];
@@ -49,14 +41,29 @@
             [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
         }
     }
-    
     return YES;
 }
 
+
+- (UIWindow *)window
+{
+    if (!_window) {
+        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    return _window;
+}
 - (void)toMain
 {
-    self.window.rootViewController = [[MSNavVC alloc] initWithRootViewController:[[ViewController alloc] init]];
+    ViewController *vc = [[ViewController alloc] init];
+    self.window.rootViewController = [[MSNavVC alloc] initWithRootViewController:vc];
+    [vc.navigationController pushViewController:[[MSContentVC alloc] init] animated:NO];
+    [vc.navigationController pushViewController:[[MSMeVC alloc] initWithNibName:@"MSMeVC" bundle:nil] animated:NO];
+    [vc.navigationController pushViewController:[[MSSettingVC alloc] init] animated:NO];
     [self.window makeKeyAndVisible];
+    
+    
+//    self.window.rootViewController = [[MSNavVC alloc] initWithRootViewController:[[ViewController alloc] init]];
+//    [self.window makeKeyAndVisible];
 }
 
 
