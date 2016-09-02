@@ -12,6 +12,7 @@
 #define APP_DELEGATE  ((AppDelegate*)[UIApplication sharedApplication].delegate)
 #define MAIN_SCREEN_H [UIScreen mainScreen].bounds.size.height
 #define MAIN_SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define LAUNCHING_IMAGEVIEW_NAME @"launchingName"
 
 // Language Setting 
 #define Localized(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Language"]

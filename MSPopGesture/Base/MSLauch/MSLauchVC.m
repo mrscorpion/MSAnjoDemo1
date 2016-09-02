@@ -10,9 +10,6 @@
 #import "MSNavVC.h"
 #import "ViewController.h"
 
-
-#define LAUNCHING_IMAGEVIEW_NAME @"launchingName"
-
 @interface MSLauchVC ()
 @property (nonatomic,strong) UIImageView *launchingBgImageView; // lauch imageView
 @property (nonatomic,strong) NSTimer *launchingTimer;
@@ -62,7 +59,7 @@
 {
     if (!_launchingBgImageView) {
         _launchingBgImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        [_launchingBgImageView setImage:[UIImage imageNamed:@"lauch"]];
+        [_launchingBgImageView setImage:[UIImage imageNamed:@"LaunchImage"]];
     }
     return _launchingBgImageView;
 }

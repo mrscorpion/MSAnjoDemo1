@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mrscorpion" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-BI-Hav">
-                    <rect key="frame" x="147" y="120" width="80" height="80"/>
+                    <rect key="frame" x="147" y="100" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="1:1" id="NrL-El-z7J"/>
                         <constraint firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="34:34" id="Wgm-SD-vSm"/>
@@ -37,7 +37,7 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 致给远方的大海 ／ 只言片语 -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgZ-U7-KXs">
-                    <rect key="frame" x="82" y="230" width="210" height="18"/>
+                    <rect key="frame" x="82" y="210" width="210" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -53,7 +53,7 @@
                 <constraint firstItem="3EZ-Pl-WRs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i0k-k1-v8E"/>
                 <constraint firstItem="3EZ-Pl-WRs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iKg-1S-2c8"/>
                 <constraint firstItem="K6e-BI-Hav" firstAttribute="width" secondItem="K6e-BI-Hav" secondAttribute="height" multiplier="34:34" id="uQ7-iR-DFy"/>
-                <constraint firstItem="K6e-BI-Hav" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="weA-qN-wQ4"/>
+                <constraint firstItem="K6e-BI-Hav" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="weA-qN-wQ4"/>
                 <constraint firstItem="xgZ-U7-KXs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zMa-Cy-fns"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
