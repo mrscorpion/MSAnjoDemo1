@@ -33,16 +33,15 @@
 {
     [super viewDidLoad];
     
-    self.title = Localized(@"Setting");
+//    self.title = Localized(@"Setting");
 //    self.navigationController.navigationBar.translucent = NO;
 //    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
 //    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:22.0f], NSFontAttributeName, nil]];
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(10, 120, self.view.frame.size.width - 20, 30);
+    btn.frame = CGRectMake(20, 120, self.view.frame.size.width - 40, 30);
     btn.backgroundColor = [UIColor blackColor];
     btn.layer.cornerRadius = 5;
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
