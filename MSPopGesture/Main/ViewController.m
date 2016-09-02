@@ -27,16 +27,14 @@
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anjo"]];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
-    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - Actions
-- (void)toNext
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.navigationController pushViewController:[[MSContentVC alloc] init] animated:YES];
 }
+
 
 
 - (void)didReceiveMemoryWarning

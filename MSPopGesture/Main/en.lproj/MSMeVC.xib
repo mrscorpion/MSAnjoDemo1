@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMeVC">
             <connections>
                 <outlet property="dragView" destination="K6e-BI-Hav" id="4Lp-ue-D5q"/>
+                <outlet property="signatureLabel" destination="xgZ-U7-KXs" id="HUc-0W-2aJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,7 +63,7 @@
                     <exclude reference="JOW-lV-tue"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="245.5" y="312.5"/>
+            <point key="canvasLocation" x="-20.5" y="310.5"/>
         </view>
     </objects>
     <resources>

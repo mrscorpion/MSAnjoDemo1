@@ -1,0 +1,18 @@
+/* 
+  Language.strings
+  MSPopGesture
+
+  Created by mr.scorpion on 16/9/2.
+  Copyright © 2016年 mr.scorpion. All rights reserved.
+*/
+
+"Signature" = "I Dreamed A Dream , They Call It Love";
+
+"Change Display Language" = "Change Display Language";
+"System Language" = "English";
+"App language" = "App language";
+
+"Setting" = "Setting";
+"Tap" = "Tap";
+"Cancel" = "Cancel";
+"Confirm" = "Confirm";

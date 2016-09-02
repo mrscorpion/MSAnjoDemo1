@@ -13,9 +13,12 @@
 
 #import "MSMeVC.h"
 #import "UIView+Draggable.h"
+#import "MSSettingVC.h"
+#import "AppDelegate.h"
 
 @interface MSMeVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *dragView;
+@property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
 @end
 
 @implementation MSMeVC
@@ -24,20 +27,34 @@
 {
     [super viewDidLoad];
     
+    self.signatureLabel.text = Localized(@"Signature");
+    
     // UIImageView ignored user events by default, so set
     // `userInteractionEnabled` to YES for receive touch events.
     self.dragView.userInteractionEnabled = YES;
     
     // Make avatarView draggable
     [self.dragView makeDraggable];
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+    tap.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tap];
 }
-
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     // Update snap point when layout occured
     [self.dragView updateSnapPoint];
 }
+
+#pragma mark - Actions
+- (void)toNext
+{
+    [self.navigationController pushViewController:[[MSSettingVC alloc] init] animated:YES];
+}
+
+
 
 
 

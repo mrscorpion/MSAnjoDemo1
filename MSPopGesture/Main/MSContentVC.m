@@ -25,10 +25,12 @@
     [super viewDidLoad];
     self.title = @"To Jane";
 
+    // BG Image
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"firefly"]];
     bgImageView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview:bgImageView];
     
+    // To Next
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
     [self.view addGestureRecognizer:tap];
 }

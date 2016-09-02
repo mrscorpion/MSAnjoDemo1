@@ -1,0 +1,18 @@
+/* 
+  Language.strings
+  MSPopGesture
+
+  Created by mr.scorpion on 16/9/2.
+  Copyright © 2016年 mr.scorpion. All rights reserved.
+*/
+"Signature" = "- 致给远方的大海 / 只言片语 -";
+
+
+"Change Display Language" = "切换显示语言";
+"System Language" = "中文";
+"App language" = "系统当前语言";
+
+"Setting" = "设置";
+"Tap" = "点击";
+"Cancel" = "取消";
+"Confirm" = "确认";
