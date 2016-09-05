@@ -1,6 +1,6 @@
 # MSAnjoDemo1
-Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect
-
+Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect, Vertical Text
+![](wqs.png)
 ![](MSAnjo2.gif)
 
 * 启动动画
@@ -11,5 +11,6 @@ Launching animation, Localization，Custom Pop gesture，Dragble View， Night s
 。。。
 
 ## 效果图
+![](firefly.png)
 ![](MSAnjo.gif)
 
