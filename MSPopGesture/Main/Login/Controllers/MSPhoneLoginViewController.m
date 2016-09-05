@@ -47,8 +47,8 @@
     _textFieldBottomLineConstraint.constant = 0;
     _inputPhoneField.delegate = self;
     
-    _loginButton.transform = CGAffineTransformMakeScale(0, 44);
-    _loginButton.hidden = YES;
+//    _loginButton.transform = CGAffineTransformMakeScale(0, 44);
+//    _loginButton.hidden = YES;
     
     [HomePageAnimationUtil registerButtonWidthAnimation:_loginButton withView:self.view andProgress:0];
     

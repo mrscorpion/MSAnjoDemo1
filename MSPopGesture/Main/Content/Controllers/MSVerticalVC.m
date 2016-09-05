@@ -35,14 +35,18 @@
     
     // Gesture
     // To Next
-    UITapGestureRecognizer *singleTapDouble = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+    UITapGestureRecognizer *singleTapDouble = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
     singleTapDouble.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:singleTapDouble];
+//
+//    // Back
+//    UITapGestureRecognizer *doubleSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
+//    doubleSingleTap.numberOfTouchesRequired = 2;
+//    [self.view addGestureRecognizer:doubleSingleTap];
     
-    // Back
-    UITapGestureRecognizer *doubleSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
-    doubleSingleTap.numberOfTouchesRequired = 2;
-    [self.view addGestureRecognizer:doubleSingleTap];
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+//    swipe.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipe];
 }
 
 - (NSMutableAttributedString *)buildAttrString:(NSString *)content withFont:(NSString *)fontName fontSize:(CGFloat)fontSize lineSpace:(CGFloat)lineSpace fontColor:(UIColor *)textColor delLine:(BOOL)delLine
