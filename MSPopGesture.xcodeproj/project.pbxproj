@@ -22,6 +22,9 @@
 		A65BE0751D79C638006E3D6D /* MSSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A65BE06E1D79C638006E3D6D /* MSSettingVC.m */; };
 		A65BE0781D79C65C006E3D6D /* MSRipperView.m in Sources */ = {isa = PBXBuildFile; fileRef = A65BE0771D79C65C006E3D6D /* MSRipperView.m */; };
 		A65BE07B1D79D0C2006E3D6D /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A65BE07A1D79D0C2006E3D6D /* UIButton+Block.m */; };
+		A68E9CD91D7D20FD0025DB36 /* MSVerticalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E9CD81D7D20FD0025DB36 /* MSVerticalVC.m */; };
+		A68E9CE21D7D22C90025DB36 /* MSVerticalView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E9CE11D7D22C90025DB36 /* MSVerticalView.m */; };
+		A68E9CE51D7D22D50025DB36 /* MSContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E9CE41D7D22D50025DB36 /* MSContainerView.m */; };
 		A6C0CDE61D790E3600CF18A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C0CDE51D790E3600CF18A2 /* main.m */; };
 		A6C0CDEF1D790E3600CF18A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CDED1D790E3600CF18A2 /* Main.storyboard */; };
 		A6C0CDF11D790E3600CF18A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C0CDF01D790E3600CF18A2 /* Assets.xcassets */; };
@@ -72,6 +75,12 @@
 		A65BE0771D79C65C006E3D6D /* MSRipperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRipperView.m; sourceTree = "<group>"; };
 		A65BE0791D79D0C2006E3D6D /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		A65BE07A1D79D0C2006E3D6D /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
+		A68E9CD71D7D20FD0025DB36 /* MSVerticalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVerticalVC.h; sourceTree = "<group>"; };
+		A68E9CD81D7D20FD0025DB36 /* MSVerticalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVerticalVC.m; sourceTree = "<group>"; };
+		A68E9CE01D7D22C90025DB36 /* MSVerticalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVerticalView.h; sourceTree = "<group>"; };
+		A68E9CE11D7D22C90025DB36 /* MSVerticalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVerticalView.m; sourceTree = "<group>"; };
+		A68E9CE31D7D22D50025DB36 /* MSContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContainerView.h; sourceTree = "<group>"; };
+		A68E9CE41D7D22D50025DB36 /* MSContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContainerView.m; sourceTree = "<group>"; };
 		A6C0CDE11D790E3600CF18A2 /* MSPopGesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSPopGesture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C0CDE51D790E3600CF18A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A6C0CDEE1D790E3600CF18A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +221,8 @@
 			children = (
 				A65BE05A1D79C638006E3D6D /* MSContentVC.h */,
 				A65BE05B1D79C638006E3D6D /* MSContentVC.m */,
+				A68E9CD71D7D20FD0025DB36 /* MSVerticalVC.h */,
+				A68E9CD81D7D20FD0025DB36 /* MSVerticalVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +237,10 @@
 		A65BE05D1D79C638006E3D6D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A68E9CE01D7D22C90025DB36 /* MSVerticalView.h */,
+				A68E9CE11D7D22C90025DB36 /* MSVerticalView.m */,
+				A68E9CE31D7D22D50025DB36 /* MSContainerView.h */,
+				A68E9CE41D7D22D50025DB36 /* MSContainerView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -552,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68E9CE21D7D22C90025DB36 /* MSVerticalView.m in Sources */,
 				A65BE0571D79BEEF006E3D6D /* MSBaseVC.m in Sources */,
 				A65BE0751D79C638006E3D6D /* MSSettingVC.m in Sources */,
 				A656CAF01D794EE300470745 /* UIView+Draggable.m in Sources */,
@@ -562,7 +578,9 @@
 				A65BE0711D79C638006E3D6D /* MSContentVC.m in Sources */,
 				A65BE0781D79C65C006E3D6D /* MSRipperView.m in Sources */,
 				A656CADA1D794A7C00470745 /* MSLauchVC.m in Sources */,
+				A68E9CD91D7D20FD0025DB36 /* MSVerticalVC.m in Sources */,
 				A656CADB1D794A7C00470745 /* MSNavVC.m in Sources */,
+				A68E9CE51D7D22D50025DB36 /* MSContainerView.m in Sources */,
 				A6C0CDE61D790E3600CF18A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

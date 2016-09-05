@@ -7,6 +7,7 @@
 //
 
 #import "MSContentVC.h"
+#import "MSVerticalVC.h"
 #import "MSMeVC.h"
 
 @interface MSContentVC ()
@@ -17,16 +18,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.title = @"To Jane";
 
     // BG Image
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"firefly"]];
     bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
     
+    // Gesture
     // To Next
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
-    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *singleTapDouble = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+    singleTapDouble.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:singleTapDouble];
+    
+    // To Vertical
+    UITapGestureRecognizer *doubleSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toVertical)];
+    doubleSingleTap.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:doubleSingleTap];
 }
 
 #pragma mark - Actions
@@ -34,6 +41,11 @@
 {
     [self.navigationController pushViewController:[[MSMeVC alloc] initWithNibName:@"MSMeVC" bundle:nil] animated:YES];
 }
+- (void)toVertical
+{
+    [self presentViewController:[[MSVerticalVC alloc] init] animated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
