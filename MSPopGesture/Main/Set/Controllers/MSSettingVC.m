@@ -15,8 +15,11 @@
 
 #define kMargin 20
 #define kHeight 36
+#define kButtonCount 3
 
 @interface MSSettingVC ()
+@property (nonatomic, strong) NSArray *buttonArr;
+@property (nonatomic, strong) UILabel *titleLabel;
 @end
 
 @implementation MSSettingVC
@@ -33,73 +36,36 @@
 }
 - (void)configurationUI
 {
-    WeakSelf;
-    
     // title
     UILabel *titleLabel = [[UILabel alloc] init];
+    self.titleLabel = titleLabel;
     titleLabel.font = [UIFont systemFontOfSize:25.f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text =  Localized(@"Setting");
     [self.view addSubview:titleLabel];
-    [titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(kMargin);
-        make.top.height.mas_equalTo(kHeight);
-        make.right.equalTo(self.view).offset(-kMargin);
-        make.height.mas_equalTo(kHeight);
-    }];
-    
-    // language
-    UIButton *languageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:languageBtn];
-    [languageBtn setTitle:[NSString stringWithFormat:@"%@ : %@", Localized(@"Tap"), Localized(@"Change Display Language")] forState:UIControlStateNormal];
-    languageBtn.layer.cornerRadius = 5;
-    languageBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [languageBtn addActionHandler:^(NSInteger tag) {
-        [weakSelf languageAction];
-    }];
-    [languageBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(titleLabel);
-        make.top.equalTo(titleLabel.mas_bottom).offset(kHeight);
-    }];
-    
-    // day night
-    UIButton *nightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:nightBtn];
-    [nightBtn setTitle:Localized(@"Switch Night") forState:UIControlStateNormal];
-    nightBtn.layer.cornerRadius = 5;
-    nightBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [nightBtn addActionHandler:^(NSInteger tag) {
-        [weakSelf setDayNight];
-    }];
-    [nightBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(languageBtn);
-        make.top.equalTo(languageBtn.mas_bottom).offset(kMargin);
-    }];
-    
-    // login
-    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:loginBtn];
-    [loginBtn setTitle:Localized(@"Login") forState:UIControlStateNormal];
-    loginBtn.layer.cornerRadius = 5;
-    loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [loginBtn addActionHandler:^(NSInteger tag) {
-        [weakSelf loginAction];
-    }];
-    [loginBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(nightBtn);
-        make.top.equalTo(nightBtn.mas_bottom).offset(kMargin);
-    }];
     
     // color setting
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
     [titleLabel dk_setTextColorPicker:DKColorPickerWithKey(TEXT)];
     [titleLabel dk_setShadowColorPicker:DKColorPickerWithKey(BAR)];
-    [languageBtn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
-    [languageBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
-    [nightBtn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
-    [nightBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
-    [loginBtn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
-    [loginBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
+    
+    // buttons
+    NSArray *titleArr = @[[NSString stringWithFormat:@"%@ : %@", Localized(@"Tap"), Localized(@"Change Display Language")], Localized(@"Switch Night"), Localized(@"Login")];
+    NSMutableArray *buttonArrM = [NSMutableArray array];
+    for (int index = 0; index < kButtonCount; index++)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:titleArr[index] forState:UIControlStateNormal];
+        button.layer.cornerRadius = 5;
+        button.titleLabel.font = [UIFont systemFontOfSize:16];
+        [button dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
+        [button dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
+        [buttonArrM addObject:button];
+        [self.view addSubview:button];
+        button.tag = index + 10;
+        [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchDown];
+    }
+    self.buttonArr = [buttonArrM copy];
 }
 - (void)dealloc
 {
@@ -107,9 +73,54 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:LANGUAGE_CHANGED_NOTIFICATION object:nil];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(kMargin);
+        make.top.equalTo(self.view).offset(kHeight);
+        make.right.equalTo(self.view).offset(-kMargin);
+        make.height.mas_equalTo(kHeight);
+    }];
+    
+    __block UIButton *lastButton;
+    for (int index = 0; index < kButtonCount; index++) {
+        UIButton *button = self.buttonArr[index];
+        
+        [button mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.right.height.equalTo(self.titleLabel);
+            if (index == 0) {
+                make.top.equalTo(self.titleLabel.mas_bottom).offset(kMargin);
+            }
+            else {
+                make.top.equalTo(lastButton.mas_bottom).offset(kMargin);
+            }
+        }];
+        lastButton = button;
+    }
+}
 
 
 #pragma mark - Actions
+- (void)buttonTapped:(UIButton *)sender
+{
+    switch (sender.tag) {
+        case 10:
+            [self languageAction];
+            break;
+            
+        case 11:
+            [self setDayNight];
+            break;
+            
+        case 12:
+            [self loginAction];
+            break;
+            
+        default:
+            break;
+    }
+}
 // NIGHT SETTING
 - (void)setDayNight
 {
@@ -126,7 +137,8 @@
 - (void)loginAction
 {
     MSPhoneLoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"MSPhoneLoginViewController"];
-    [self presentViewController:loginVC animated:YES completion:nil];
+//    [self presentViewController:loginVC animated:YES completion:nil];
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 
 // LANGUAGE

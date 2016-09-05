@@ -13,6 +13,7 @@
 
 #import "ViewController.h"
 #import "MSContentVC.h"
+#import "Masonry.h"
 
 @interface ViewController ()
 @end
@@ -22,11 +23,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.title = @"Anjo";
     
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anjo"]];
-    bgImageView.frame = self.view.bounds;
     [self.view addSubview:bgImageView];
+    [bgImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-49);
+    }];
 }
 
 #pragma mark - Actions
