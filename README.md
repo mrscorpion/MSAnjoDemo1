@@ -1,5 +1,5 @@
 # MSAnjoDemo1
-Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect, Vertical Text
+Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect, Vertical Text, buddle button
 ![](wqs.png)
 ![](MSAnjo3.gif)
 
