@@ -13,15 +13,18 @@ PODS:
   - DKNightVersion/UIKit (2.3.1):
     - DKNightVersion/Core
   - Masonry (1.0.1)
+  - ZCAnimatedLabel (0.0.4)
 
 DEPENDENCIES:
   - DKNightVersion
   - Masonry
+  - ZCAnimatedLabel
 
 SPEC CHECKSUMS:
   DKNightVersion: a777bb22a9a68837d89ddd724e1fcaf65581dde4
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  ZCAnimatedLabel: 519b688bef4403fd356bc785f9b61cdfd8e6472d
 
-PODFILE CHECKSUM: e957c9154663f37f96026a1ffdd4a25274bbba97
+PODFILE CHECKSUM: a00918b5a33fd7621b75282ef43421e6e0567aa9
 
 COCOAPODS: 1.0.1

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 mr.scorpion. All rights reserved.
 //
 /*
- 望结识更多好友，欢迎加我
+ 希望能结识更多好友，欢迎加我
  QQ   : 1515679729
  Blog : http://mrscorpion.github.io
  */

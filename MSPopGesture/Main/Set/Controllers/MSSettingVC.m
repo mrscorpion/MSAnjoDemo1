@@ -11,6 +11,7 @@
 #import <DKNightVersion/DKNightVersion.h>
 #import <Masonry.h>
 #import "UIButton+Block.h"
+#import "MSPhoneLoginViewController.h"
 
 #define kMargin 20
 #define kHeight 36
@@ -58,7 +59,7 @@
     }];
     [languageBtn mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(titleLabel);
-        make.top.mas_equalTo(titleLabel.mas_bottom).offset(kHeight);
+        make.top.equalTo(titleLabel.mas_bottom).offset(kHeight);
     }];
     
     // day night
@@ -72,7 +73,21 @@
     }];
     [nightBtn mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(languageBtn);
-        make.top.mas_equalTo(languageBtn.mas_bottom).offset(kMargin);
+        make.top.equalTo(languageBtn.mas_bottom).offset(kMargin);
+    }];
+    
+    // login
+    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:loginBtn];
+    [loginBtn setTitle:Localized(@"Login") forState:UIControlStateNormal];
+    loginBtn.layer.cornerRadius = 5;
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [loginBtn addActionHandler:^(NSInteger tag) {
+        [weakSelf loginAction];
+    }];
+    [loginBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.equalTo(nightBtn);
+        make.top.equalTo(nightBtn.mas_bottom).offset(kMargin);
     }];
     
     // color setting
@@ -83,6 +98,8 @@
     [languageBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
     [nightBtn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
     [nightBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
+    [loginBtn dk_setTitleColorPicker:DKColorPickerWithKey(TEXT) forState:UIControlStateNormal];
+    [loginBtn dk_setBackgroundColorPicker:DKColorPickerWithKey(HIGHLIGHTED)];
 }
 - (void)dealloc
 {
@@ -93,6 +110,7 @@
 
 
 #pragma mark - Actions
+// NIGHT SETTING
 - (void)setDayNight
 {
     if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight])
@@ -104,6 +122,14 @@
     }
 }
 
+// LOGIN ANIMATION
+- (void)loginAction
+{
+    MSPhoneLoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"MSPhoneLoginViewController"];
+    [self presentViewController:loginVC animated:YES completion:nil];
+}
+
+// LANGUAGE
 - (void)languageAction
 {
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:Localized(@"Change Display Language") message:[NSString stringWithFormat:@"%@: %@", Localized(@"App language"), Localized(@"System Language")] delegate:self cancelButtonTitle:Localized(@"Cancel") otherButtonTitles:Localized(@"Confirm"), nil];

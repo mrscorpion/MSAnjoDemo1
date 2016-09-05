@@ -9,6 +9,7 @@
 #import "MSVerticalVC.h"
 #import "MSVerticalView.h"
 #import <DKNightVersion/DKNightVersion.h>
+#import "PoetryDetailVC.h"
 
 @interface MSVerticalVC ()
 @property (nonatomic, strong) MSVerticalView *verticalView;
@@ -33,8 +34,15 @@
     [self.view addSubview:verticalView];
     
     // Gesture
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
-    [self.view addGestureRecognizer:tap];
+    // To Next
+    UITapGestureRecognizer *singleTapDouble = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+    singleTapDouble.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:singleTapDouble];
+    
+    // Back
+    UITapGestureRecognizer *doubleSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
+    doubleSingleTap.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:doubleSingleTap];
 }
 
 - (NSMutableAttributedString *)buildAttrString:(NSString *)content withFont:(NSString *)fontName fontSize:(CGFloat)fontSize lineSpace:(CGFloat)lineSpace fontColor:(UIColor *)textColor delLine:(BOOL)delLine
@@ -73,9 +81,15 @@
 }
 
 #pragma mark - Actions
-- (void)toNext
+- (void)backAction
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)toNext
+{
+    NSString *poem = @"\n《荆州亭·定三生》\n\n早料风来无信，\n怎任落花满径。\n遣散是相思，\n都作红尘宿命。\n\n漫道一言难尽，\n故在掌心深印。\n总怕误前缘，\n枉负三生约定。\n\n\n                                  -- 文/泊";
+    PoetryDetailVC *vc = [[PoetryDetailVC alloc] initWithPoem:poem];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
