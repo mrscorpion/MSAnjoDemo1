@@ -10,10 +10,13 @@
 #import "UIView+Draggable.h"
 #import "MSSettingVC.h"
 #import <DKNightVersion.h>
+#import <Masonry.h>
 
 @interface MSMeVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *dragView;
 @property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
+@property (strong, nonatomic) UIVisualEffectView *effectview;
 @end
 
 @implementation MSMeVC
@@ -24,6 +27,17 @@
     
     self.signatureLabel.text = Localized(@"Signature");
     self.signatureLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
+    
+    // Effect view
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+    self.effectview.frame = self.blurImageView.bounds;
+    self.effectview.alpha = 0.6;
+    [self.blurImageView addSubview:self.effectview];
+    [self.effectview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.blurImageView);
+    }];
+    
     
     // Draggable view
     self.dragView.userInteractionEnabled = YES;

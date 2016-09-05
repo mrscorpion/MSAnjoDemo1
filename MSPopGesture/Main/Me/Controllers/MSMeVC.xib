@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMeVC">
             <connections>
+                <outlet property="blurImageView" destination="3EZ-Pl-WRs" id="Y7G-tN-S7f"/>
                 <outlet property="dragView" destination="K6e-BI-Hav" id="4Lp-ue-D5q"/>
                 <outlet property="signatureLabel" destination="xgZ-U7-KXs" id="HUc-0W-2aJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
