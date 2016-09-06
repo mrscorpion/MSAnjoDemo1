@@ -23,13 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Anjo"]];
-    [self.view addSubview:bgImageView];
-    [bgImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-49);
-    }];
+    self.view.layer.contents = (__bridge id _Nullable)[UIImage imageNamed:@"Anjo"].CGImage;
 }
 
 #pragma mark - Actions

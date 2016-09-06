@@ -12,14 +12,14 @@
 @interface PoetryDetailVC ()
 @property (nonatomic, strong) ZCFocusLabel *poetryLabel;
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) NSString *poetry;
+@property (nonatomic, strong) NSString *poem;
 @end
 
 @implementation PoetryDetailVC
 - (instancetype)initWithPoem:(NSString *)poem
 {
     if (self = [super init]) {
-        _poetry = poem;
+        _poem = poem;
     }
     return self;
 }
@@ -72,7 +72,6 @@
     self.poetryLabel.animationDuration = 0.5;
     self.poetryLabel.layoutTool.groupType = ZCLayoutGroupChar;
     
-    // 调整frame
     CGRect stringRect = [self stringRectWithString:[self poetryString]];
     CGRect frame = self.poetryLabel.frame;
     frame.origin.x = (MAIN_SCREEN_W - CGRectGetWidth(stringRect)) / 2;
@@ -91,7 +90,7 @@
 
 - (NSAttributedString *)poetryString
 {
-    NSString *poetry = [NSString stringWithFormat:@"%@", self.poetry];
+    NSString *poetry = [NSString stringWithFormat:@"%@", self.poem];
     poetry = [poetry stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.lineSpacing = 5;
@@ -100,7 +99,7 @@
     return [str copy];
 }
 
-
+#pragma mark - Actions
 - (void)backAction
 {
     [self dismissViewControllerAnimated:YES completion:nil];

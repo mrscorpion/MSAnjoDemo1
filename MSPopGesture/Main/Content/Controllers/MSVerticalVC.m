@@ -35,24 +35,17 @@
     
     // Gesture
     // To Next
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
+    [self.view addGestureRecognizer:swipe];
+    
     UITapGestureRecognizer *singleTapDouble = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
     singleTapDouble.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:singleTapDouble];
-//
-//    // Back
-//    UITapGestureRecognizer *doubleSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backAction)];
-//    doubleSingleTap.numberOfTouchesRequired = 2;
-//    [self.view addGestureRecognizer:doubleSingleTap];
-    
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toNext)];
-//    swipe.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipe];
 }
 
 - (NSMutableAttributedString *)buildAttrString:(NSString *)content withFont:(NSString *)fontName fontSize:(CGFloat)fontSize lineSpace:(CGFloat)lineSpace fontColor:(UIColor *)textColor delLine:(BOOL)delLine
 {
-    CTFontRef fontRef = CTFontCreateWithName((CFStringRef)fontName, fontSize, NULL); // CTFontCreateWithName((CFStringRef)@"FZBWKSFW--GB1-0", 22.0f, NULL);
-    
+    CTFontRef fontRef = CTFontCreateWithName((CFStringRef)fontName, fontSize, NULL);
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:content attributes:@{
                                               //文字的方向
                                               (NSString *)kCTVerticalFormsAttributeName : @(YES),

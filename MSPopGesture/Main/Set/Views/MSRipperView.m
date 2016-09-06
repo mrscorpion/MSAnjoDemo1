@@ -10,7 +10,7 @@
 const CGFloat MSFlashInnerCircleInitialRadius = 20;
 
 @implementation MSRipperView
-// Init
+// Initialize
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {

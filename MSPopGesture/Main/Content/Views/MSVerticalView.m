@@ -39,7 +39,7 @@
         [self addSubview: content];
         // prepare for next frame
         textPos += frameRange.length;
-        //CFRelease(frame);
+        // CFRelease(frame);
         CFRelease(path);
         columnIndex++;
     }

@@ -63,6 +63,25 @@
     [MSNotificationCenter removeObserver:self];
 }
 
+#pragma mark - Actions
+- (IBAction)loginTapped:(UIButton *)sender
+{
+    if (self.inputPhoneField.text.length == 11) {
+        sender.userInteractionEnabled = YES;
+        // back
+        [self backButtonTapped:nil];
+    }
+    else {
+        sender.userInteractionEnabled = NO;
+    }
+}
+
+- (IBAction)backButtonTapped:(UIButton *)sender
+{
+    //    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Text Field
 /**
  *  键盘即将显示的时候调用
@@ -110,26 +129,6 @@
         CGFloat show = self.inputPhoneField.text.length / 11.0;
         [HomePageAnimationUtil registerButtonWidthAnimation:self.loginButton withView:self.view andProgress:show];
     }
-}
-
-
-#pragma mark - Actions
-- (IBAction)loginTapped:(UIButton *)sender
-{
-    if (self.inputPhoneField.text.length == 11) {
-        sender.userInteractionEnabled = YES;
-        // back
-        [self backButtonTapped:nil];
-    }
-    else {
-        sender.userInteractionEnabled = NO;
-    }
-}
-
-- (IBAction)backButtonTapped:(UIButton *)sender
-{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - override view method

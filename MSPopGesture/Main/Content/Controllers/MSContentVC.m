@@ -20,9 +20,7 @@
     [super viewDidLoad];
 
     // BG Image
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"firefly"]];
-    bgImageView.frame = self.view.bounds;
-    [self.view addSubview:bgImageView];
+    self.view.layer.contents = (__bridge id _Nullable)[UIImage imageNamed:@"firefly"].CGImage;
     
     // Gesture
     // To Next
