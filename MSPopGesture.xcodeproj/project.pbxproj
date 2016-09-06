@@ -512,7 +512,7 @@
 				TargetAttributes = {
 					A6C0CDE01D790E3600CF18A2 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = GXHE3742MX;
+						DevelopmentTeam = QJ8DF595F6;
 					};
 					A6C0CDF91D790E3600CF18A2 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -759,7 +759,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WLINK TECHNOLOGY (HK) CO., LIMITED";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WLINK TECHNOLOGY (HK) CO., LIMITED";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -784,12 +785,13 @@
 			baseConfigurationReference = 53537B640398C2E1D3DEDC76 /* Pods-MSPopGesture.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/mr.scorpion/MSAnjoDemo1/MSPopGesture/AnjoPrefixHeader.pch;
 				INFOPLIST_FILE = MSPopGesture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mr.scorpion.MSPopGesture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huagu.huanle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -799,12 +801,13 @@
 			baseConfigurationReference = E3A8E0A4B7B99FDE2D392BC4 /* Pods-MSPopGesture.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WLINK TECHNOLOGY (HK) CO., LIMITED";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/mr.scorpion/MSAnjoDemo1/MSPopGesture/AnjoPrefixHeader.pch;
 				INFOPLIST_FILE = MSPopGesture/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mr.scorpion.MSPopGesture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huagu.huanle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
