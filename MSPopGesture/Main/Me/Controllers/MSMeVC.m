@@ -181,7 +181,7 @@
 }
 - (void)clickedBubbleButton:(UIButton *)button
 {
-    NSLog(@"click:%ld", button.tag);
+    NSLog(@"click:%ld", (long)button.tag);
 }
 
 
