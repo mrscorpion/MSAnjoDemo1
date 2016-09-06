@@ -2,6 +2,7 @@
 Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect, Vertical Text, buddle button
     
 [蒲公英扫码下载](https://www.pgyer.com/Anjo)    
+![](AnjoPGY1.png)
 [博客](http://mrscorpion.github.io/2016/09/01/Anjo/)
 
 ![](wqs.png)
