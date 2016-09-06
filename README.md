@@ -1,6 +1,6 @@
 # MSAnjoDemo1
 Launching animation, Localization，Custom Pop gesture，Dragble View， Night setting, splash, Blur Effect, Vertical Text, buddle button  
-       
+
 [蒲公英扫码下载](https://www.pgyer.com/Anjo)   
 
 ![](AnjoPGY1.png)
